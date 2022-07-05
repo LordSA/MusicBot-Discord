@@ -4,13 +4,13 @@ This may help you if you are editing this script
 
 ## Structures(Folders)
 
-/api - Website, Socket and routes
-/assets - Images and other stuff will be public
-/commands - Bot commands and slash commands
-/events - Client events
-/structures - Classes
-/util - Extra stuffs
-/views - Page Rendering/Website
+• /api - Website, Socket and routes
+• /assets - Images and other stuff will be public
+• /commands - Bot commands and slash commands
+• /events - Client events
+• /structures - Classes
+• /util - Extra stuffs
+• /views - Page Rendering/Website
 
 ## Permissions
 
