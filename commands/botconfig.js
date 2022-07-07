@@ -18,7 +18,7 @@ module.exports = {
    */
   run: async (client, message, args, { GuildDB }) => {
     let Config = new MessageEmbed()
-      .setAuthor("Server Config", client.botconfig.IconURL)
+      .setAuthor("Server Config", client.config.IconURL)
       .setColor(client.botconfig.EmbedColor)
       .addField("Prefix", GuildDB.prefix, true)
       .addField("DJ Role", GuildDB.DJ ? `<@&${GuildDB.DJ}>` : "Not Set", true)
@@ -148,7 +148,7 @@ What would you like to edit?
     ],
     /**
      *
-     * @param {import("../structures/DiscordMusicBot")} client
+     * @param {import("../structures/MusicBotDiscord")} client
      * @param {import("discord.js").Message} message
      * @param {string[]} args
      * @param {*} param3
