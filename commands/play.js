@@ -13,7 +13,7 @@ module.exports = {
   aliases: ["p"],
   /**
    *
-   * @param {import("../structures/DiscordMusicBot")} client
+   * @param {import("../structures/MusicBotDiscord")} client
    * @param {import("discord.js").Message} message
    * @param {string[]} args
    * @param {*} param3
