@@ -27,8 +27,8 @@ module.exports = {
 
     let song = player.queue.current;
     let QueueEmbed = new MessageEmbed()
-      .setAuthor("Currently playing", client.botconfig.IconURL)
-      .setColor(client.botconfig.EmbedColor)
+      .setAuthor("Currently playing", client.config.IconURL)
+      .setColor(client.config.EmbedColor)
       .setDescription(`[${song.title}](${song.uri})`)
       .addField("Requested by", `${song.requester}`, true)
       .addField(
@@ -49,7 +49,7 @@ module.exports = {
   SlashCommand: {
     /**
      *
-     * @param {import("../structures/DiscordMusicBot")} client
+     * @param {import("../structures/MusicBotDiscord")} client
      * @param {import("discord.js").Message} message
      * @param {string[]} args
      * @param {*} param3
@@ -64,8 +64,8 @@ module.exports = {
 
       let song = player.queue.current;
       let QueueEmbed = new MessageEmbed()
-        .setAuthor("Currently playing", client.botconfig.IconURL)
-        .setColor(client.botconfig.EmbedColor)
+        .setAuthor("Currently playing", client.config.IconURL)
+        .setColor(client.config.EmbedColor)
         .setDescription(`[${song.title}](${song.uri})`)
         .addField("Requested by", `${song.requester}`, true)
         .addField(
