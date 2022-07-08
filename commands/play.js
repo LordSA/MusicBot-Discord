@@ -38,7 +38,7 @@ module.exports = {
         message.channel,
         `**Usage - **\`${GuildDB.prefix}play [song]\``
       );
-    let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
+    let CheckNode = client.Manager.nodes.get(client.config.Lavalink.id);
     let Searching = await message.channel.send(":mag_right: Searching...");
     if (!CheckNode || !CheckNode.connected) {
       return client.sendTime(
@@ -69,7 +69,7 @@ module.exports = {
     try {
       if (SearchString.match(client.Lavasfy.spotifyPattern)) {
         await client.Lavasfy.requestToken();
-        let node = client.Lavasfy.nodes.get(client.botconfig.Lavalink.id);
+        let node = client.Lavasfy.nodes.get(client.config.Lavalink.id);
         let Searched = await node.load(SearchString);
 
         if (Searched.loadType === "PLAYLIST_LOADED") {
@@ -100,7 +100,7 @@ module.exports = {
           );
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
-          SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+          SongAddedEmbed.setAuthor(`Added to queue`, client.config.IconURL);
           SongAddedEmbed.setDescription(
             `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
           );
@@ -169,7 +169,7 @@ module.exports = {
           player.queue.add(Searched.tracks[0]);
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
-          SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+          SongAddedEmbed.setAuthor(`Added to queue`, client.config.IconURL);
 
           // SongAddedEmbed.setThumbnail(Searched.tracks[0].displayThumbnail());
           SongAddedEmbed.setDescription(
@@ -213,7 +213,7 @@ module.exports = {
     ],
     /**
      *
-     * @param {import("../structures/DiscordMusicBot")} client
+     * @param {import("../structures/MusicBotDiscord")} client
      * @param {import("discord.js").Message} message
      * @param {string[]} args
      * @param {*} param3
@@ -236,7 +236,7 @@ module.exports = {
           interaction,
           ":x: | **You must be in the same voice channel as me to use this command!**"
         );
-      let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
+      let CheckNode = client.Manager.nodes.get(client.config.Lavalink.id);
       if (!CheckNode || !CheckNode.connected) {
         return client.sendTime(
           interaction,
@@ -257,7 +257,7 @@ module.exports = {
 
       if (search.match(client.Lavasfy.spotifyPattern)) {
         await client.Lavasfy.requestToken();
-        let node = client.Lavasfy.nodes.get(client.botconfig.Lavalink.id);
+        let node = client.Lavasfy.nodes.get(client.config.Lavalink.id);
         let Searched = await node.load(search);
 
         switch (Searched.loadType) {
@@ -283,7 +283,7 @@ module.exports = {
               `Added to queue`,
               client.botconfig.IconURL
             );
-            SongAddedEmbed.setColor(client.botconfig.EmbedColor);
+            SongAddedEmbed.setColor(client.config.EmbedColor);
             SongAddedEmbed.setDescription(
               `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
             );
@@ -305,8 +305,8 @@ module.exports = {
             if (!player.playing && !player.paused && !player.queue.length)
               player.play();
             let SongAdded = new MessageEmbed();
-            SongAdded.setAuthor(`Added to queue`, client.botconfig.IconURL);
-            SongAdded.setColor(client.botconfig.EmbedColor);
+            SongAdded.setAuthor(`Added to queue`, client.config.IconURL);
+            SongAdded.setColor(client.config.EmbedColor);
             SongAdded.setDescription(
               `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
             );
@@ -375,10 +375,10 @@ module.exports = {
             let SongAddedEmbed = new MessageEmbed();
             SongAddedEmbed.setAuthor(
               `Added to queue`,
-              client.botconfig.IconURL
+              client.config.IconURL
             );
             //SongAddedEmbed.setThumbnail(res.tracks[0].displayThumbnail());
-            SongAddedEmbed.setColor(client.botconfig.EmbedColor);
+            SongAddedEmbed.setColor(client.config.EmbedColor);
             SongAddedEmbed.setDescription(
               `[${res.tracks[0].title}](${res.tracks[0].uri})`
             );
@@ -404,7 +404,7 @@ module.exports = {
             let SongAdded = new MessageEmbed();
             SongAdded.setAuthor(
               `Playlist added to queue`,
-              client.botconfig.IconURL
+              client.config.IconURL
             );
             //SongAdded.setThumbnail(res.tracks[0].displayThumbnail());
             SongAdded.setDescription(
@@ -431,10 +431,10 @@ module.exports = {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
                 `Added to queue`,
-                client.botconfig.IconURL
+                client.config.IconURL
               );
               SongAddedEmbed.setThumbnail(track.displayThumbnail());
-              SongAddedEmbed.setColor(client.botconfig.EmbedColor);
+              SongAddedEmbed.setColor(client.config.EmbedColor);
               SongAddedEmbed.setDescription(`[${track.title}](${track.uri})`);
               SongAddedEmbed.addField("Author", track.author, true);
               SongAddedEmbed.addField(
@@ -456,10 +456,10 @@ module.exports = {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
                 `Added to queue`,
-                client.botconfig.IconURL
+                client.config.IconURL
               );
               SongAddedEmbed.setThumbnail(track.displayThumbnail());
-              SongAddedEmbed.setColor(client.botconfig.EmbedColor);
+              SongAddedEmbed.setColor(client.config.EmbedColor);
               SongAddedEmbed.setDescription(`[${track.title}](${track.uri})`);
               SongAddedEmbed.addField("Author", track.author, true);
               SongAddedEmbed.addField(
