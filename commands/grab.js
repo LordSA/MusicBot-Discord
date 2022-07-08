@@ -55,7 +55,7 @@ module.exports = {
             `https://img.youtube.com/vi/${player.queue.current.identifier}/mqdefault.jpg`
           )
           .setURL(player.queue.current.uri)
-          .setColor(client.botconfig.EmbedColor)
+          .setColor(client.config.EmbedColor)
           .setTitle(`**${player.queue.current.title}**`)
           .addField(
             `⌛ Duration: `,
@@ -128,7 +128,7 @@ module.exports = {
             `https://img.youtube.com/vi/${player.queue.current.identifier}/mqdefault.jpg`
           )
           .setURL(player.queue.current.uri)
-          .setColor(client.botconfig.EmbedColor)
+          .setColor(client.config.EmbedColor)
           .setTimestamp()
           .setTitle(`**${player.queue.current.title}**`)
           .addField(
