@@ -44,8 +44,8 @@ module.exports = {
       );
     player.pause(true);
     let embed = new MessageEmbed()
-      .setAuthor(`Paused!`, client.botconfig.IconURL)
-      .setColor(client.botconfig.EmbedColor)
+      .setAuthor(`Paused!`, client.config.IconURL)
+      .setColor(client.config.EmbedColor)
       .setDescription(`Type \`${GuildDB.prefix}resume\` to continue playing!`);
     await message.channel.send(embed);
     await message.react("✅");
@@ -54,7 +54,7 @@ module.exports = {
   SlashCommand: {
     /**
      *
-     * @param {import("../structures/DiscordMusicBot")} client
+     * @param {import("../structures/MusicBotDiscord")} client
      * @param {import("discord.js").Message} message
      * @param {string[]} args
      * @param {*} param3
