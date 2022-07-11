@@ -11,7 +11,7 @@ module.exports = {
   aliases: ["command", "commands", "cmd"],
   /**
    *
-   * @param {import("../structures/DiscordMusicBot")} client
+   * @param {import("../structures/MusicBotDiscord")} client
    * @param {import("discord.js").Message} message
    * @param {string[]} args
    * @param {*} param3
@@ -19,7 +19,7 @@ module.exports = {
   run: async (client, message, args, { GuildDB }) => {
     let Commands = client.commands.map(
       (cmd) =>
-        `\`${GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix}${
+        `\`${GuildDB ? GuildDB.prefix : client.config.DefaultPrefix}${
           cmd.name
         }${cmd.usage ? " " + cmd.usage : ""}\` - ${cmd.description}`
     );
@@ -32,14 +32,14 @@ module.exports = {
       .setColor(client.botconfig.EmbedColor)
       .setFooter(
         `To get info of each command type ${
-          GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix
+          GuildDB ? GuildDB.prefix : client.config.DefaultPrefix
         }help [Command] | Have a nice day!`
       ).setDescription(`${Commands.join("\n")}
   
   Discord Music Bot Version: v${require("../package.json").version}
   [✨ Support Server](${
-    client.botconfig.SupportServer
-  }) | [GitHub](https://github.com/SudhanPlayz/Discord-MusicBot) | [Dashboard](${client.botconfig.Website}) | By [SudhanPlayz](https://github.com/SudhanPlayz)`);
+    client.config.SupportServer
+  }) | [GitHub](https://github.com/LordSA/MusicBot-Discord) | [Dashboard](${client.config.Website}) | By [SudhanPlayz](https://github.com/SudhanPlayz)`);
     if (!args[0]) message.channel.send(Embed);
     else {
       let cmd =
